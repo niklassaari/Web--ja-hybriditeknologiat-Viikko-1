@@ -7,7 +7,8 @@ export default function App() {
   
   const [age, setAge] = useState<string>("")
   
-  // Jos arvo on muu kuin numero ja on NaN, niin lower ja upper arvoista tulee 0
+  // tldr Jos arvo on muu kuin numero, lower ja upper saavat arvon 0
+  // checkNumeric tarkistaa että annettu arvo on numero ja että kenttään on syötetty jotain
   const checkNumeric = age !== "" && !isNaN(Number(age))
 
   const lower = checkNumeric ? (220 - Number(age)) * 0.65 : 0;
@@ -19,7 +20,7 @@ export default function App() {
       <Text style={styles.heading}>Heart Rate Limits Calculator</Text>
       <StatusBar style="auto" />
       <Text>Enter your age:</Text>
-      
+
 <TextInput
 style={styles.inputfield}
 placeholder="Age"
